@@ -329,12 +329,16 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                     <?php foreach ($listed_items as $item): 
                         $images = json_decode($item['images'], true);
                         $first_image = !empty($images) ? $images[0] : 'placeholder.jpg';
+                        $name = $item['name'];
+                        $category = $item['category'];
+
+
                     ?>
                   <div class="item-card">
                             <img src="<?php echo htmlspecialchars($first_image ?? 'default.jpg'); ?>" alt="<?php echo htmlspecialchars($item['name'] ?? 'Unnamed Item'); ?>" class="item-image">
                             <div class="item-details">
-                                <div class="item-name"><?php echo htmlspecialchars($item['name'] ?? 'Unnamed Item'); ?></div>
-                                <div class="item-category"><?php echo htmlspecialchars($item['category'] ?? 'Uncategorized'); ?></div>
+                                <div class="item-name"><?php echo htmlspecialchars($name ?? 'Unnamed Item'); ?></div>
+                                <div class="item-category"><?php echo htmlspecialchars($category ?? 'Uncategorized'); ?></div>
                             </div>
                </div>
 
