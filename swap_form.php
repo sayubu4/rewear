@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $stmt = $conn->prepare($sql);
         $images_json = json_encode($uploadedFiles);
-        $user_id = 1; // Replace with actual user ID from session
+        $user_id =$_SESSION['user_id'];
         
         $stmt->bind_param("sssssssssi", $name, $category, $condition, $brand, $size, $color, 
                          $description, $swap_preferences, $images_json, $user_id);
