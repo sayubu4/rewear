@@ -1,6 +1,7 @@
 <?php
 // swap_form.php
 include 'session_check.php';
+include 'db_config.php';
 
 // Initialize error/success message variables
 $message = '';
@@ -8,7 +9,7 @@ $messageType = '';
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include 'db_config.php';
+ 
     
     try {
         // Validate and process the form data
@@ -235,7 +236,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php endif; ?>
 
-        <form action="swap_review.php" method="POST" enctype="multipart/form-data">
+        <form  method="POST" enctype="multipart/form-data">
             <div class="form-grid">
                 <div class="form-group">
                     <label for="item_name">Item Name</label>
