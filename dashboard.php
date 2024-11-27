@@ -333,8 +333,8 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                         <div class="item-card">
                             <img src="<?php echo htmlspecialchars($first_image); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="item-image">
                             <div class="item-details">
-                                <div class="item-name"><?php echo "$item['name']"; ?></div>
-                                <div class="item-category"><?php echo "($item['category'])"; ?></div>
+                                <div class="item-name">"<?php echo htmlspecialchars($item['name']); ?>"</div>
+                                <div class="item-category">"<?php echo htmlspecialchars($item['category']); ?>"</div>
                             </div>
                         </div>
                     <?php endforeach; ?>
