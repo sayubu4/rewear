@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ReWear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
+            --accent-color: #81C784;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar Styles (Directly copied from register page) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 180px;
+            padding: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            list-style: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            padding: 0.5rem 1.5rem;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .login-btn {
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .login-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .signup-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .signup-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* About Us Page Styles */
+        .about-us {
+            max-width: 1200px;
+            margin: 120px auto 0;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 200px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+            background-color: #f0f0f0;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .cta a {
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            transition: var(--transition);
+        }
+
+        .cta a:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">ReWear</div>
+        <ul class="nav-links">
+            <li><a href="rewear.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="services.html" class="dropdown-toggle">Our Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="sell.php">Sell</a></li>
+                    <li><a href="display.php">Buy Now</a></li>
+                    <li><a href="swap_page.php">Swap</a></li>
+                </ul>
+            </li>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="supportpage.html">FAQs</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="login_user_rewear.php" class="login-btn">Login</a>
+            <a href="register_user_rewear.php" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="about-us">
+        <h1>About Us</h1>
+        
+        <p>ReWear was born out of the desire to create a more sustainable fashion ecosystem where clothes are given a second life. By selling, swapping, or buying gently-used items, we aim to reduce waste, promote conscious consumption, and give everyone the opportunity to shop in a more eco-friendly way.</p>
+        
+        <h2>Our Mission</h2>
+        <p>Our mission is to empower individuals to make more sustainable choices by providing an easy and accessible platform to buy, sell, and swap clothes. We are committed to reducing fashion waste and promoting a circular economy.</p>
+        
+        <h2>Our Vision</h2>
+        <p>We envision a future where fashion is no longer fast, but circular—where clothing is cherished, recycled, and repurposed. Our goal is to become the leading platform for sustainable fashion, making eco-friendly choices accessible to everyone.</p>
+        
+        <h2>Our Values</h2>
+        <ul>
+            <li><strong>Sustainability:</strong> We believe in the power of reusing, recycling, and reducing waste.</li>
+            <li><strong>Transparency:</strong> We are committed to honesty and openness in everything we do.</li>
+            <li><strong>Community:</strong> We strive to build a supportive and inclusive platform for everyone who shares our passion for sustainable fashion.</li>
+        </ul>
+        
+        <h2>Why Choose ReWear?</h2>
+        <p>Unlike traditional shopping, ReWear allows you to buy quality pre-owned clothes, swap items with others, and sell what you no longer need. Our platform is designed to be simple, safe, and sustainable—helping you make eco-friendly choices effortlessly.</p>
+        
+        <h2>Our Impact</h2>
+        <p>Since our launch, ReWear has helped reduce thousands of tons of textile waste by giving clothes a second life. We're proud to be a part of the solution to the global fashion waste crisis.</p>
+        
+        <h2>Meet the Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="https://drive.google.com/uc?id=1LedFJ6gn8PgGCFNUyMxHD3Sh7DWG77J0" alt="Delice Ishimwe">
+                <h3>Delice Ishimwe</h3>
+                <p>Back End Dev</p>
+            </div>            
+            <div class="team-member">
+                <img src="team-member-2.jpg" alt="Eunice Sayubu">
+                <h3>Eunice Sayubu</h3>
+                <p>Back End Dev</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member-3.jpg" alt="La Grace Divine Igirubuntu">
+                <h3>La Grace Divine Igirubuntu</h3>
+                <p>Front End Dev</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member-3.jpg" alt="Eric Hatungimana">
+                <h3>Eric Hatungimana</h3>
+                <p>Front End Dev</p>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <p>Start selling, swapping, or buying today and be a part of the change!</p>
+            <a href="register_user_rewear.php">Get Started</a>
+        </div>
+    </section>
+</body>
+</html>

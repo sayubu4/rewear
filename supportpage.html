@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReWear - Support & FAQs</title>
+    <link rel="stylesheet" href="rewear.css">
+    <style>
+        .faq-section {
+            padding: 4rem 5%;
+            background: #f9f9f9;
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .faq-header:hover {
+            background-color: #f0f0f0;
+        }
+        .faq-header h3 {
+            margin: 0;
+            color: var(--text-dark);
+        }
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        .faq-content {
+            display: none;
+            padding: 1rem 1.5rem;
+            background: #f9f9f9;
+        }
+        .faq-content.show {
+            display: block;
+        }
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">ReWear</div>
+        <ul class="nav-links">
+            <li><a href="rewear.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="services.html" class="dropdown-toggle">Our Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="sell.php">Sell</a></li>
+                    <li><a href="display.php">Buy Now</a></li>
+                    <li><a href="swap_page.php">Swap</a></li>
+                </ul>
+            </li>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="supportpage.html">FAQs</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="login_user_rewear.php" class="login-btn">Login</a>
+            <a href="register_user_rewear.php" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Support Page -->
+    <section class="hero">
+        <div class="overlay">
+            <h1>Help & Support</h1>
+            <p>Find answers to your questions and get the support you need for a seamless ReWear experience.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3>How to Sell</h3>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-content">
+                <p>Steps to sell on ReWear:</p>
+                <ul>
+                    <li>Create an account or log in</li>
+                    <li>Click "Sell" in the navigation menu</li>
+                    <li>Take clear photos of your item</li>
+                    <li>Fill out detailed listing form</li>
+                    <li>Set a competitive price</li>
+                    <li>Wait for potential buyers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3>Buying Guidelines</h3>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-content">
+                <p>How to buy on ReWear:</p>
+                <ul>
+                    <li>Browse "Buy Now" section</li>
+                    <li>Use filters to find your perfect item</li>
+                    <li>Read item descriptions carefully</li>
+                    <li>Check seller ratings</li>
+                    <li>Make a secure payment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3>Swap Program</h3>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-content">
+                <p>How our Swap Program works:</p>
+                <ul>
+                    <li>List items you want to swap</li>
+                    <li>Browse other users' swap offerings</li>
+                    <li>Propose a swap</li>
+                    <li>Get mutual agreement</li>
+                    <li>We facilitate secure shipping</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3>Shipping & Returns</h3>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-content">
+                <p>Shipping Details:</p>
+                <ul>
+                    <li>Standard shipping: 3-5 business days</li>
+                    <li>Expedited shipping available</li>
+                </ul>
+                <p>Return Policy:</p>
+                <ul>
+                    <li>14-day return window</li>
+                    <li>Items must be unworn and unwashed</li>
+                    <li>Buyer pays return shipping</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3>Account Management</h3>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-content">
+                <p>Managing your ReWear account:</p>
+                <ul>
+                    <li>Update profile in Dashboard</li>
+                    <li>Change password</li>
+                    <li>Manage payment methods</li>
+                    <li>Track sales and purchases</li>
+                    <li>Edit listed items</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3>Contact Support</h3>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-content">
+                <p>Get in touch with us:</p>
+                <ul>
+                    <li>Email: support@rewear.com</li>
+                    <li>Live Chat: Mon-Fri, 9am-5pm EST</li>
+                    <li>Phone: 1-800-REWEAR-HELP</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const faqItem = header.parentElement;
+                const faqContent = faqItem.querySelector('.faq-content');
+                const faqToggle = header.querySelector('.faq-toggle');
+
+                faqContent.classList.toggle('show');
+                faqToggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
