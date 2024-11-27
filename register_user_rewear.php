@@ -15,14 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashedPassword = hashPassword($password);
 
     // Check if the email already exists
-    $checkEmailSql = "SELECT * FROM User WHERE Email='$email'";
+    $checkEmailSql = "SELECT * FROM user WHERE Email='$email'";
     $checkEmailResult = $conn->query($checkEmailSql);
 
     if ($checkEmailResult->num_rows > 0) {
         $error = "Error: Email already exists. Please use a different email.";
     } else {
         // Insert user into the database
-        $sql = "INSERT INTO User (Username, Email, Password, Location, ProfileType) 
+        $sql = "INSERT INTO user (Username, Email, Password, Location, ProfileType) 
                 VALUES ('$username', '$email', '$hashedPassword', '$location', '$profileType')";
 
         if ($conn->query($sql) === TRUE) {
