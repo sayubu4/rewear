@@ -14,6 +14,8 @@ $stmt->execute();
 $listed_items_result = $stmt->get_result();
 $listed_items = $listed_items_result->fetch_all(MYSQLI_ASSOC);
 
+echo "$listed_items"
+
 // Fetch incoming swap requests (you'll need to create this table)
 $incoming_requests_sql = "SELECT sr.*, si.name as item_name, si.images 
                          FROM swap_requests sr 
@@ -331,8 +333,6 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                         $first_image = !empty($images) ? $images[0] : 'placeholder.jpg';
                         $name = $item['name'];
                         $category = $item['category'];
-
-
                     ?>
                   <div class="item-card">
                             <img src="<?php echo htmlspecialchars($first_image ?? 'default.jpg'); ?>" alt="<?php echo htmlspecialchars($item['name'] ?? 'Unnamed Item'); ?>" class="item-image">
