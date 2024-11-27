@@ -14,7 +14,6 @@ $stmt->execute();
 $listed_items_result = $stmt->get_result();
 $listed_items = $listed_items_result->fetch_all(MYSQLI_ASSOC);
 
-echo implode(", ", $listed_items['name']);
 
 // Fetch incoming swap requests (you'll need to create this table)
 $incoming_requests_sql = "SELECT sr.*, si.name as item_name, si.images 
@@ -332,13 +331,13 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                         $images = json_decode($item['images'], true);
                         $first_image = !empty($images) ? $images[0] : 'placeholder.jpg';
                         $name = $item['name'];
-                        $category = $item['category'];
+                        $descr = $item['description'];
                     ?>
                   <div class="item-card">
                             <img src="<?php echo htmlspecialchars($first_image ?? 'default.jpg'); ?>" alt="<?php echo htmlspecialchars($item['name'] ?? 'Unnamed Item'); ?>" class="item-image">
                             <div class="item-details">
                                 <div class="item-name"><?php echo htmlspecialchars($name ?? 'Unnamed Item'); ?></div>
-                                <div class="item-category"><?php echo htmlspecialchars($category ?? 'Uncategorized'); ?></div>
+                                <div class="item-category"><?php echo htmlspecialchars($descr ?? 'Uncategorized'); ?></div>
                             </div>
                </div>
 
