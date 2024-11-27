@@ -52,7 +52,7 @@ include 'session_check.php';
             <button onclick="searchProducts()">Search</button>
         </div>
         <ul class="nav-links">
-            <li><a href="rewear.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="about_us.html">About Us</a></li>
             <li class="dropdown">
                 <a href="services.html" class="dropdown-toggle">Our Services</a>
