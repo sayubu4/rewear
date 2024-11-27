@@ -14,7 +14,7 @@ $stmt->execute();
 $listed_items_result = $stmt->get_result();
 $listed_items = $listed_items_result->fetch_all(MYSQLI_ASSOC);
 
-echo "$listed_items"
+echo "$listed_items";
 
 // Fetch incoming swap requests (you'll need to create this table)
 $incoming_requests_sql = "SELECT sr.*, si.name as item_name, si.images 
