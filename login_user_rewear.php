@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $enteredPassword = $_POST['password'];
 
     // Prepare SQL to prevent SQL injection
-    $sql = "SELECT UserID, Username, Password FROM User WHERE Email = ?";
+    $sql = "SELECT UserID, Username, Password FROM user WHERE Email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
