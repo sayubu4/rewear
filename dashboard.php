@@ -26,6 +26,7 @@ $incoming_requests_result = $stmt->get_result();
 $incoming_requests = $incoming_requests_result->fetch_all(MYSQLI_ASSOC);
 
 // Check for success message
+// not n
 $success_message = '';
 if (isset($_GET['success']) && $_GET['success'] == 1) {
     $success_message = "Your item has been successfully listed!";
